@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>MySQL的Docker主从(Master-Slave)集群部署详解</title>
+      <link href="/2018/07/17/MySQL%E7%9A%84Docker%E4%B8%BB%E4%BB%8E-Master-Slave-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2018/07/17/MySQL%E7%9A%84Docker%E4%B8%BB%E4%BB%8E-Master-Slave-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> Docker </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>《Head First策略模式》读书笔记（一）:策略模式</title>
+      <link href="/2018/05/01/%E3%80%8AHead%20First%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89:%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2018/05/01/%E3%80%8AHead%20First%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89:%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p>本文属于《Head First设计模式》一书的读书笔记的第一部分，策略模式是该书的第一章内容。<br>《Head First设计模式》一书用幽默风趣的行文风格对OO编程中常用的多种设计模式进行了讲解和归纳，非常值得一看。如果各位同学对本文有什么不了解的地方，欢迎评论留言，也可以直接阅读原书寻找答案。</p><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote><p>策略模式——定义算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户。</p></blockquote><p>以上是书中对于<em>策略模式</em>的定义。以下以书中的鸭子应用示例来详细讲解策略模式的定义：</p><h3 id="鸭子应用"><a href="#鸭子应用" class="headerlink" title="鸭子应用"></a>鸭子应用</h3><p>甲方需求：我们需要表示各种鸭子（绿头鸭、红头鸭、木头鸭，北京烤鸭等）</p><h4 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h4><p><img src="Screen Shot 2018-05-01 at 9.05.17 PM.png" alt=""></p><p>方案1是设计一个<code>Duck</code>超类，在这个超类中定义鸭子们都共有的一些方法，如<code>呱呱叫（quack）</code>、<code>游泳（swim）</code>。有一个<code>display()</code>抽象方法由子类自行实现，不同的子类必须重写此方法，获得自己个性化的外观。</p><p><strong>缺陷</strong>  “鸭子”这个概念实在是太宽泛了，我们不可能在一个超类中将”鸭子”这个概念进行完备的定义。有可能在超类中增加的一个方法，就将为子类带来了不存在的行为。譬如我们可能会创造出一只会飞的北京烤鸭…</p><h4 id="方案2"><a href="#方案2" class="headerlink" title="方案2"></a>方案2</h4><p>我们自然而然的想到，我们可以重写子类不具备的行为，让这个行为什么也不做。比如，北京烤鸭可以重写超类<code>Duck</code>的<code>fly()</code>方法，然后什么也不做。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BeijingRoastDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span></span>&#123;</span><br><span class="line">    <span class="comment">// ... 其他方法</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    fly()&#123;</span><br><span class="line">        <span class="comment">// 北京烤鸭不会飞，所以什么也不做</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>缺陷</strong> 对于某些子类，我们可能需要重写太多的超类方法！这违反了Coding的DRY原则，太多代码无法被复用。因此我们需要寻找更好的方案。</p><h4 id="方案3"><a href="#方案3" class="headerlink" title="方案3"></a>方案3</h4><p>那么我们利用接口来实现Duck的各种行为怎么样？我们可以设计很多的接口（<code>Flyable`</code>Quackable`等）来让不同的鸭子来选择实现，这样就不会出现会飞的北京烤鸭了！  </p><p><strong>缺陷</strong> 我们仍然只是从一个坑跳到了另一个坑，在实现相同的接口中的方法时，我们仍然无法复用相似的代码。<br>例如绿头鸭和红头鸭都具有类似的飞行行为，可是我们仍然必须得把相同的飞行方式重写两编。显然，这还是不够dry。</p><h4 id="方案4"><a href="#方案4" class="headerlink" title="方案4"></a>方案4</h4><p>在这里，书中为我们引入了OO开发中的两个重量级<strong>设计原则</strong>：</p><pre><code>1. 找出应用中可能需要变化之处，把他们独立出来，不要和哪些不需要变化的代码混在一起。2. 针对接口编程，而不是针对实现编程。</code></pre><p>接下来，我们区分开鸭类类中的变化和不会变化的部分，将鸭子的<code>飞行</code>和<code>呱呱叫</code>行为取出来，建立一组单独的类来表示每个行为。</p><p><img src="Screen Shot 2018-05-01 at 10.10.37 PM.png" alt=""></p><p>这次，我们用类来表示鸭子的不同行为，因此我们既复用了代码，甚至可以在运行时通过更改鸭子行为的对象来改变鸭子的行为！我们其实是在用组合来实现继承的功能，但是却丢掉了继承带来的包袱。</p><p><img src="Screen Shot 2018-05-01 at 10.15.26 PM.png" alt=""></p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>我们最后得出的一个重要<strong>设计原则</strong>是：</p><pre><code>多用组合，少用继承</code></pre><p>笔者对这个原则的理解是，继承是一种表现形式，而并不意味着我们一定要用类似 <code>extends</code> 这样的关键字来实现。我们大可以用组合来实现继承，因而可以得到继承的优点，而不需要承受继承关系中的超类和子类的强耦合。顺便，我们还因此实现了运行时的动态行为更改。</p><p>策略模式正是上述这条设计原则的体现。最后，让我们重温策略模式的定义：</p><blockquote><p>策略模式——定义算法族，分别封装起来，让它们之间可以互相替换，此模式让算法的变化独立于使用算法的客户。</p></blockquote>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 设计模式 </tag>
+            
+            <tag> 读书笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>搭建好hexo的第一篇文章</title>
+      <link href="/2018/05/01/%E6%90%AD%E5%BB%BA%E5%A5%BDhexo%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2018/05/01/%E6%90%AD%E5%BB%BA%E5%A5%BDhexo%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      <content type="html"><![CDATA[<p>刚刚搭建好基于Hexo的静态博客，发一片博文测试下。现在是5月1日的凌晨00点51分。再码几个字就去睡觉了。今后要争取每周更新博客，记录自己的学习历程，也希望能帮助网络上的各位朋友。</p><p>明日的目标是继续配置博客未配置的部分，更换一些静态图片等等。</p><p>P.S. 配合刚刚到手的Filco忍者2红轴，打起字根本停不下来。。。简直爽歪歪</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title></title>
+      <link href="/google38516623010f715d.html"/>
+      <url>/google38516623010f715d.html</url>
+      <content type="html"><![CDATA[google-site-verification: google38516623010f715d.html]]></content>
+    </entry>
+    
+    <entry>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+  
+</search>

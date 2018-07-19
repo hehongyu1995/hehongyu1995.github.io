@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>何小宇的博客小站</title>
+  
+  <subtitle>记录我和关于编程的一切</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://hehongyu1995.github.io/"/>
+  <updated>2018-07-17T02:53:36.085Z</updated>
+  <id>http://hehongyu1995.github.io/</id>
+  
+  <author>
+    <name>何小宇</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL的Docker主从(Master-Slave)集群部署详解</title>
+    <link href="http://hehongyu1995.github.io/2018/07/17/MySQL%E7%9A%84Docker%E4%B8%BB%E4%BB%8E-Master-Slave-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://hehongyu1995.github.io/2018/07/17/MySQL的Docker主从-Master-Slave-集群部署详解/</id>
+    <published>2018-07-17T02:52:17.000Z</published>
+    <updated>2018-07-17T02:53:36.085Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="编程" scheme="http://hehongyu1995.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Docker" scheme="http://hehongyu1995.github.io/tags/Docker/"/>
+    
+      <category term="MySQL" scheme="http://hehongyu1995.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Head First策略模式》读书笔记（一）:策略模式</title>
+    <link href="http://hehongyu1995.github.io/2018/05/01/%E3%80%8AHead%20First%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89:%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hehongyu1995.github.io/2018/05/01/《Head First策略模式》读书笔记（一）:策略模式/</id>
+    <published>2018-05-01T08:42:00.000Z</published>
+    <updated>2018-05-01T14:38:33.660Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本文属于《Head First设计模式》一书的读书笔记的第一部分，策略模式是该书的第一章内容。&lt;br&gt;《Head
+        
+      
+    
+    </summary>
+    
+    
+      <category term="编程" scheme="http://hehongyu1995.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="设计模式" scheme="http://hehongyu1995.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="读书笔记" scheme="http://hehongyu1995.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建好hexo的第一篇文章</title>
+    <link href="http://hehongyu1995.github.io/2018/05/01/%E6%90%AD%E5%BB%BA%E5%A5%BDhexo%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+    <id>http://hehongyu1995.github.io/2018/05/01/搭建好hexo的第一篇文章/</id>
+    <published>2018-04-30T16:51:33.000Z</published>
+    <updated>2018-05-01T08:38:43.235Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;刚刚搭建好基于Hexo的静态博客，发一片博文测试下。现在是5月1日的凌晨00点51分。再码几个字就去睡觉了。今后要争取每周更新博客，记录自己的学习历程，也希望能帮助网络上的各位朋友。&lt;/p&gt;
+&lt;p&gt;明日的目标是继续配置博客未配置的部分，更换一些静态图片等等。&lt;/p&gt;
+&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="日常" scheme="http://hehongyu1995.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+</feed>
