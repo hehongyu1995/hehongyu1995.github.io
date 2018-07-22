@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hehongyu1995.github.io/"/>
-  <updated>2018-07-20T08:10:16.118Z</updated>
+  <updated>2018-07-22T08:56:25.537Z</updated>
   <id>http://hehongyu1995.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://hehongyu1995.github.io/2018/07/17/MySQL%E7%9A%84Docker%E4%B8%BB%E4%BB%8E-Master-Slave-%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E8%AF%A6%E8%A7%A3/"/>
     <id>http://hehongyu1995.github.io/2018/07/17/MySQL的Docker主从-Master-Slave-集群部署详解/</id>
     <published>2018-07-17T02:52:17.000Z</published>
-    <updated>2018-07-20T08:10:16.118Z</updated>
+    <updated>2018-07-22T08:56:25.537Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,7 @@
       
         
         
-          &lt;p&gt;参考资料&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.phpini.com/mysql/mysql-master-slave-replication&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MySQL 設定 Master-Slave
+          &lt;p&gt;MySQL的集群主要有两个成熟方案：&lt;code&gt;分布式集群&lt;/code&gt;和&lt;code&gt;主从集群&lt;/code&gt;。 本文主要介绍MySQL的主从集群方案在Docker下的部署。&lt;br&gt;Docker下的MySQL主从集群部署，与直接通过启动MySQL
         
       
     
