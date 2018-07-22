@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="何小宇的博客小站">
 <meta property="og:description" content="MySQL的集群主要有两个成熟方案：分布式集群和主从集群。 本文主要介绍MySQL的主从集群方案在Docker下的部署。Docker下的MySQL主从集群部署，与直接通过启动MySQL server来部署是类似的。要注意的三个点是，配置文件、数据目录的映射、以及replica用户的创建。以下将介绍最简单的单Master-单Slave的主从集群部署，需要增加Slave时，配置是类似的。 0x01 准">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-22T08:58:26.469Z">
+<meta property="og:updated_time" content="2018-07-22T08:59:30.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL的Docker主从(Master-Slave)集群部署详解">
 <meta name="twitter:description" content="MySQL的集群主要有两个成熟方案：分布式集群和主从集群。 本文主要介绍MySQL的主从集群方案在Docker下的部署。Docker下的MySQL主从集群部署，与直接通过启动MySQL server来部署是类似的。要注意的三个点是，配置文件、数据目录的映射、以及replica用户的创建。以下将介绍最简单的单Master-单Slave的主从集群部署，需要增加Slave时，配置是类似的。 0x01 准">
@@ -396,7 +396,7 @@
 <h2 id="0x01-准备工作"><a href="#0x01-准备工作" class="headerlink" title="0x01 准备工作"></a>0x01 准备工作</h2><p>在开始实操之前，我们首先建立一个工作目录，用于配置文件的存放和DB文件的存放：<br><code>&gt; mkdir master_slave &amp;&amp; cd master_slave</code></p>
 <h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>首先新建两个配置文件，这两个配置文件在之后均会被重命名为<code>my.cnf</code>，被mysqld所读取：</p>
 <h4 id="Master配置"><a href="#Master配置" class="headerlink" title="Master配置"></a>Master配置</h4><p>新建<code>master.cnf</code>:</p>
-<p><code>&gt; vi master.cnf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; vi master.cnf</span><br></pre></td></tr></table></figure>
 <p><code>master.cnf</code>配置文件内容如下：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[mysqld]</span></span><br><span class="line"><span class="string">server-id=1</span></span><br><span class="line"><span class="string">binlog-ignore-db</span> <span class="string">=</span> <span class="string">"mysql"</span></span><br><span class="line"><span class="string">binlog-format</span> <span class="string">=</span> <span class="string">mixed</span></span><br><span class="line"><span class="string">log-bin=mysql-bin</span></span><br><span class="line"><span class="string">datadir=/var/lib/mysql</span></span><br><span class="line"><span class="string">innodb_flush_log_at_trx_commit=1</span></span><br><span class="line"><span class="string">sync_binlog=1</span></span><br></pre></td></tr></table></figure>
 <h4 id="Slave配置"><a href="#Slave配置" class="headerlink" title="Slave配置"></a>Slave配置</h4><p>新建<code>slave.cnf</code>:</p>
