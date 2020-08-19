@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.6",
-      "buildId": "cpflwkt6hzbf7guvmcv7kiawyi"
+      "buildId": "gum53rrp7fe2hc4s5zwdbf75ya"
     }
   },
   "variants": [
@@ -64,11 +64,11 @@
         {
           "name": "oas3-redoc-spring-boot-starter-0.0.1.jar",
           "url": "oas3-redoc-spring-boot-starter-0.0.1.jar",
-          "size": 14171,
-          "sha512": "d1874d2294138c4f808cc98d778291d35f8725f8dd0d31dc0a00281610f2cca3895da10e4a58f24b75ac92a33849b813c6f72a3d94aa7d95cccf6817edb7ea74",
-          "sha256": "1ceede9f6b8e3fe6b305a2f8903d9014855d986ae9b2d2f0900bdd2905293a07",
-          "sha1": "260f229deab966e8c9df03d2dead5b137358f5f7",
-          "md5": "bfb0b505a10ef26944d9c865dc2e35b7"
+          "size": 13926,
+          "sha512": "5e1284f0533b7427341859cced653aad11b1d17aa2dd58f3675cbc6041845807fd4c968918c96a6c8e7922fee930be25f727c2e284817279412d2a4322ef64ae",
+          "sha256": "2ade06400ebb384aa25f4e0ded9e908bf7ce4d9175fbe37349eaee4e75e658b5",
+          "sha1": "05cafc68c9bf3c5644195b6a872a9c1c33f3d092",
+          "md5": "6be7a534dec7e2c934795da7cef5eeae"
         }
       ]
     },
@@ -131,11 +131,11 @@
         {
           "name": "oas3-redoc-spring-boot-starter-0.0.1.jar",
           "url": "oas3-redoc-spring-boot-starter-0.0.1.jar",
-          "size": 14171,
-          "sha512": "d1874d2294138c4f808cc98d778291d35f8725f8dd0d31dc0a00281610f2cca3895da10e4a58f24b75ac92a33849b813c6f72a3d94aa7d95cccf6817edb7ea74",
-          "sha256": "1ceede9f6b8e3fe6b305a2f8903d9014855d986ae9b2d2f0900bdd2905293a07",
-          "sha1": "260f229deab966e8c9df03d2dead5b137358f5f7",
-          "md5": "bfb0b505a10ef26944d9c865dc2e35b7"
+          "size": 13926,
+          "sha512": "5e1284f0533b7427341859cced653aad11b1d17aa2dd58f3675cbc6041845807fd4c968918c96a6c8e7922fee930be25f727c2e284817279412d2a4322ef64ae",
+          "sha256": "2ade06400ebb384aa25f4e0ded9e908bf7ce4d9175fbe37349eaee4e75e658b5",
+          "sha1": "05cafc68c9bf3c5644195b6a872a9c1c33f3d092",
+          "md5": "6be7a534dec7e2c934795da7cef5eeae"
         }
       ]
     },
@@ -151,11 +151,11 @@
         {
           "name": "oas3-redoc-spring-boot-starter-0.0.1-sources.jar",
           "url": "oas3-redoc-spring-boot-starter-0.0.1-sources.jar",
-          "size": 5138,
-          "sha512": "5792d53263657405093cd4b17922c9852f0f50865600a0e69ac588f4bb0715d6a1599dd2d128534bd13f9b6ac8d1493e244e2607990ebab0dbf45c8feedb2646",
-          "sha256": "19cc71781635a25690260042deef9f750db87dec1cbd9e07511ff7082e7f88b1",
-          "sha1": "877fe0601ff1531a012623863d0d36fbf8bab1f0",
-          "md5": "d93a12414ec2cd3a215e761de2da01fb"
+          "size": 5119,
+          "sha512": "2d07e52c2ef441674d0081219e3f26a803b966da45cab4afc04dfa9cb15cfc38405e5050c8a64b657ef5cee407e7858c040c9f492d44c66e562ceb1219b412e2",
+          "sha256": "05530b46e933aebfdf5883ee3fff47c7736181e9ac302a301449eb25b8b0c14d",
+          "sha1": "45691565c2318f3e137e509d480074ff4fdd0d67",
+          "md5": "fbcf538c396a08c8a78848b20c7c9d95"
         }
       ]
     }
